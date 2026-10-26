@@ -1,6 +1,26 @@
 /* ==========================================================================
    TOKENS
    ========================================================================== */
+/* project cards inside light sections (Ventures) */
+.stratum--light .project-card {
+  background: var(--limestone-raised);
+  border-color: rgba(32, 28, 23, 0.15);
+}
+.stratum--light .project-card h3,
+.stratum--light .impact-list li {
+  color: var(--ink);
+}
+.stratum--light .impact-list strong {
+  color: var(--ironstone-dim);
+}
+.stratum--light .tech-badges span {
+  background: rgba(59, 130, 102, 0.16);
+  color: #2b6b52;
+}
+.stratum--light .project-links a {
+  color: var(--ink);
+}
+
 :root {
   --basalt: #1a1714;       /* dark stratum background */
   --basalt-raised: #24201b;
@@ -156,8 +176,25 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .ruler-list a.is-active::before { background: var(--ironstone); border-color: var(--ironstone); }
 
 @media (min-width: 1080px) {
-  .ruler { display: block; }
-  .wrap { margin-left: 64px; }
+  .ruler {
+    display: block;
+    top: 4.5rem;                    /* start below the sticky header */
+    height: calc(100vh - 4.5rem);
+    width: 150px;
+    padding: 1.5rem 0;
+  }
+  .ruler-track { top: 1.5rem; bottom: 1.5rem; }
+  .ruler-list a { white-space: nowrap; }
+
+  /* reserve a clear gutter so labels never touch the content */
+  .stratum,
+  .site-footer { padding-left: 160px; }
+  .wrap { margin: 0 auto; }
+}
+
+/* short laptop screens: drop the depth numbers so the labels fit */
+@media (min-width: 1080px) and (max-height: 700px) {
+  .ruler-list a .ruler-depth { display: none; }
 }
 
 /* ==========================================================================
